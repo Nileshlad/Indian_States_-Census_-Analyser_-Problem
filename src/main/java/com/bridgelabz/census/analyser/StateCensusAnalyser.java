@@ -33,8 +33,8 @@ public class StateCensusAnalyser {
                 System.out.println();
             }
         } catch (NoSuchFileException e) {
-            throw new StateCensusAnalyserException(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.NO_SUCH_FILE_FOUND,"No such a type");
-
+        } catch (RuntimeException e) {
+            throw new StateCensusAnalyserException(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.WRONG_DELIMITER,"File not found");
         } catch (IOException e) {
             e.printStackTrace();
         }
