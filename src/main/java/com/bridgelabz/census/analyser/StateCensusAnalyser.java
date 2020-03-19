@@ -34,7 +34,6 @@ public class StateCensusAnalyser {
             }
         } catch (NoSuchFileException e) {
             throw new StateCensusAnalyserException(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.NO_SUCH_FILE_FOUND,"No such a type");
-            
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -52,7 +51,6 @@ public class StateCensusAnalyser {
         }
         return extension;
     }
-
 
     public static void main(String[] args) {
         System.out.println("Welcome to Indian States Census Analyser Problem");

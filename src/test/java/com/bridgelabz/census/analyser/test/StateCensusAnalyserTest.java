@@ -24,24 +24,23 @@ public class StateCensusAnalyserTest {
 
     //TEST CASE 1.2
     @Test
-    public void givenIndianCensusCsvFile_WhenProper_ShouldReturnCorrectRecordWrong_ThrowCustomException() throws StateCensusAnalyserException{
+    public void givenIndianCensusCsvFile_WhenProper_ShouldReturnCorrectRecordWrong_ThrowCustomException() throws StateCensusAnalyserException {
         try {
             int numberOfRecord = censusAnalyserProblem.loadIndiaCensusData(WRONG_STATE_CENSUS_DATA_PATH);
             Assert.assertEquals(29, numberOfRecord);
-            }catch (StateCensusAnalyserException e){
-        Assert.assertEquals(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.NO_SUCH_FILE_FOUND,e.type);
-    }
+        } catch (StateCensusAnalyserException e) {
+            Assert.assertEquals(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.NO_SUCH_FILE_FOUND, e.type);
+        }
     }
 
     //TEST CASE 1.3
     @Test
-    public void givenIndianCensusCsvFile_WhenImproperType_ShouldThrowException() throws StateCensusAnalyserException{
+    public void givenIndianCensusCsvFile_WhenImproperType_ShouldThrowException() throws StateCensusAnalyserException {
         try {
             int numberOfRecord = censusAnalyserProblem.loadIndiaCensusData(WRONG_TYPE_STATE_CENSUS_DATA_PATH);
-            Assert.assertEquals(29,numberOfRecord);
+            Assert.assertEquals(29, numberOfRecord);
         } catch (StateCensusAnalyserException e) {
-            Assert.assertEquals(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.NO_SUCH_TYPE,e.type);
+            Assert.assertEquals(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.NO_SUCH_TYPE, e.type);
         }
     }
-
 }
