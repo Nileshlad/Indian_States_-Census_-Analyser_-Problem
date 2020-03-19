@@ -11,8 +11,9 @@ public class StateCensusAnalyserTest {
     private static final String STATE_CENSUS_DATA_PATH = "./src/test/rescue/StateCensusData.csv";
     private static final String WRONG_STATE_CENSUS_DATA_PATH = "./src/test/rescue/StateCensusData.csv";
     private static final String WRONG_TYPE_STATE_CENSUS_DATA_PATH = "./src/test/resources/StateCensusData.cv";
+    private static final String WRONG_DELIMITER_STATE_CENSUS_DATA_PATH = "./src/test/resources/WrongDelimiterStateCensusData.csv";
 
-    //OBJECT CREATION
+       //OBJECT CREATION
     StateCensusAnalyser censusAnalyserProblem = new StateCensusAnalyser();
 
     //TEST CASE 1.1
@@ -41,6 +42,17 @@ public class StateCensusAnalyserTest {
             Assert.assertEquals(29, numberOfRecord);
         } catch (StateCensusAnalyserException e) {
             Assert.assertEquals(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.NO_SUCH_TYPE, e.type);
+        }
+    }
+
+    //TEST CASE 1.4
+    @Test
+    public void givenIndianCensusCsvFile_WhenImproperDelimiter_ShouldThrowException() throws StateCensusAnalyserException{
+        try {
+            int numberOfRecord = censusAnalyserProblem.loadIndiaCensusData(WRONG_DELIMITER_STATE_CENSUS_DATA_PATH);
+            Assert.assertEquals(29,numberOfRecord);
+        } catch (StateCensusAnalyserException e) {
+            Assert.assertEquals(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.WRONG_DELIMITER,e.type);
         }
     }
 }
