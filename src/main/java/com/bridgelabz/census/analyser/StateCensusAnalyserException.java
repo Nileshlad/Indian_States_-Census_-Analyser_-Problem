@@ -2,7 +2,7 @@ package com.bridgelabz.census.analyser;
 
 public class StateCensusAnalyserException extends Exception {
 
-        //
+        //CONSTANT
    public enum CensusAnalyserCustomExceptionType{
         NO_SUCH_FILE_FOUND,NO_SUCH_TYPE;
 
