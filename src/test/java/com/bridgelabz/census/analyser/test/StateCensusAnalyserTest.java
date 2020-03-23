@@ -15,8 +15,9 @@ public class StateCensusAnalyserTest {
     private static final String WRONG_DELIMITER_STATE_CENSUS_DATA_PATH = "./src/test/resources/WrongDelimiterStateCensusData.csv";
     private static final String WRONG_HEADER_STATE_CENSUS_DATA_PATH = "./src/test/resources/WrongHeaderStateCensusData.csv";
     private static final String INDIAN_STATE_CODE_INFORMATION_PATH = "./src/test/resources/StateCode.csv";
-    private static final String WRONG_INDIAN_STATE_CODE_INFORMATION_PATH = "./src/test/resources/StateCode.csv";
-    //OBJECT CREATION
+    private static final String WRONG_INDIAN_STATE_CODE_INFORMATION_PATH = "./src/test/resources/StatCode.csv";
+    private static final String WRONG_TYPE_INDIAN_STATE_CODE_INFORMATION_PATH = "./src/test/resources/StateCode.cv";
+
     StateCensusAnalyser censusAnalyserProblem = new StateCensusAnalyser();
     CSVStates csvStates = new CSVStates();
 
@@ -82,10 +83,21 @@ public class StateCensusAnalyserTest {
     @Test
     public void givenIndianStateCodeCsvFile_WhenImproper_ShouldThrowException() {
         try {
-            int numberOfRecord = censusAnalyserProblem.loadIndiaCensusData(WRONG_INDIAN_STATE_CODE_INFORMATION_PATH);
-            Assert.assertEquals(29, numberOfRecord);
+            int numberOfRecord = csvStates.loadIndianStateCodeData(WRONG_INDIAN_STATE_CODE_INFORMATION_PATH);
+            Assert.assertEquals(37, numberOfRecord);
         } catch (StateCensusAnalyserException e) {
             Assert.assertEquals(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.FILE_NOT_FOUND, e.type);
+        }
+    }
+
+    //TEST CASE 2.3 
+    @Test
+    public void givenIndianStateCodeCsvFile_WhenImproperType_ShouldThrowException() throws StateCensusAnalyserException {
+        try {
+            int numberOfRecord = csvStates.loadIndianStateCodeData(WRONG_TYPE_INDIAN_STATE_CODE_INFORMATION_PATH);
+            Assert.assertEquals(37, numberOfRecord);
+        } catch (StateCensusAnalyserException e) {
+            Assert.assertEquals(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.NO_SUCH_TYPE, e.type);
         }
     }
 }

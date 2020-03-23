@@ -41,15 +41,9 @@ public class StateCensusAnalyser {
         return recordCount;
     }
 
+    //METHOD TO GET EXTENSION OF CSV FILE
     private static String getFileExtension(String file) {
         String extension = "";
-        try {
-            if (file != null) {
-                extension = file.substring(file.lastIndexOf("."));
-            }
-        } catch (Exception e) {
-            extension = "";
-        }
         return extension;
     }
 
