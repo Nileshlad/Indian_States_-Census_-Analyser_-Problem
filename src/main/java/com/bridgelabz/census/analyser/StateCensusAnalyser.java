@@ -32,10 +32,12 @@ public class StateCensusAnalyser {
                 System.out.print("density: " + censusCSV.getDensityPerSqKm() + ", ");
                 System.out.println();
             }
-        } catch (NoSuchFileException e) {
+
         } catch (RuntimeException e) {
-            throw new StateCensusAnalyserException(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.WRONG_DELIMITER,"File not found");
-        } catch (IOException e) {
+            throw new StateCensusAnalyserException(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.WRONG_DELIMITER_OR_HEADER,"File not found");
+        }catch (NoSuchFileException e) {
+            throw new StateCensusAnalyserException(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.FILE_NOT_FOUND, "File not found");
+        }catch (IOException e) {
             e.printStackTrace();
         }
         return recordCount;

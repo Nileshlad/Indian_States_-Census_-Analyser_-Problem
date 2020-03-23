@@ -6,13 +6,13 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class StateCensusAnalyserTest {
-
     //CONSTANT
+
     private static final String STATE_CENSUS_DATA_PATH = "./src/test/rescue/StateCensusData.csv";
     private static final String WRONG_STATE_CENSUS_DATA_PATH = "./src/test/rescue/StateCensusData.csv";
     private static final String WRONG_TYPE_STATE_CENSUS_DATA_PATH = "./src/test/resources/StateCensusData.cv";
     private static final String WRONG_DELIMITER_STATE_CENSUS_DATA_PATH = "./src/test/resources/WrongDelimiterStateCensusData.csv";
-
+    private static final String WRONG_HEADER_STATE_CENSUS_DATA_PATH = "./src/test/resources/WrongHeaderStateCensusData.csv";
        //OBJECT CREATION
     StateCensusAnalyser censusAnalyserProblem = new StateCensusAnalyser();
 
@@ -30,7 +30,7 @@ public class StateCensusAnalyserTest {
             int numberOfRecord = censusAnalyserProblem.loadIndiaCensusData(WRONG_STATE_CENSUS_DATA_PATH);
             Assert.assertEquals(29, numberOfRecord);
         }catch (StateCensusAnalyserException e){
-            Assert.assertEquals(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.NO_SUCH_FILE_FOUND,e.type);
+            Assert.assertEquals(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.FILE_NOT_FOUND,e.type);
         }
     }
 
@@ -52,7 +52,18 @@ public class StateCensusAnalyserTest {
             int numberOfRecord = censusAnalyserProblem.loadIndiaCensusData(WRONG_DELIMITER_STATE_CENSUS_DATA_PATH);
             Assert.assertEquals(29,numberOfRecord);
         } catch (StateCensusAnalyserException e) {
-            Assert.assertEquals(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.WRONG_DELIMITER,e.type);
+            Assert.assertEquals(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.WRONG_DELIMITER_OR_HEADER,e.type);
+        }
+    }
+
+    //TEST CASE 1.5
+    @Test
+    public void givenIndianCensusCsvFile_WhenImproperHeader_ShouldThrowException() throws StateCensusAnalyserException {
+        try {
+            int numberOfRecord = censusAnalyserProblem.loadIndiaCensusData(WRONG_HEADER_STATE_CENSUS_DATA_PATH);
+            Assert.assertEquals(29,numberOfRecord);
+        } catch (StateCensusAnalyserException e) {
+            Assert.assertEquals(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.WRONG_DELIMITER_OR_HEADER,e.type);
         }
     }
 }

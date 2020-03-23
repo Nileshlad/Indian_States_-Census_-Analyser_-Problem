@@ -4,7 +4,7 @@ public class StateCensusAnalyserException extends Exception {
 
     //CONSTANT
     public enum CensusAnalyserCustomExceptionType{
-        NO_SUCH_FILE_FOUND,NO_SUCH_TYPE,WRONG_DELIMITER;
+        FILE_NOT_FOUND,NO_SUCH_TYPE,WRONG_DELIMITER_OR_HEADER;;
 
     }
     public CensusAnalyserCustomExceptionType type;
