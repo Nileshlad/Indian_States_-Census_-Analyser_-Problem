@@ -1,22 +1,18 @@
 package com.bridgelabz.census.analyser;
 
-public class StateCensusAnalyserException extends Exception
-{
-
-    public CensusAnalyserCustomExceptionType type;
-
+public class StateCensusAnalyserException extends Exception {
     //CONSTANT
-   public enum CensusAnalyserCustomExceptionType
-        {
-        NO_SUCH_FILE_FOUND,NO_SUCH_TYPE,WRONG_DELIMITER;
-   
+    public enum CensusAnalyserCustomExceptionType {
+        FILE_NOT_FOUND,NO_SUCH_FILE_FOUND, NO_SUCH_TYPE, WRONG_DELIMITER_OR_HEADER;;
+
+    }
+
     public CensusAnalyserCustomExceptionType type;
 
     //CONSTRUCTOR
-    public CensusAnalyserCustomExceptionType(CensusAnalyserCustomExceptionType type, String message)
-    {
+    public StateCensusAnalyserException(CensusAnalyserCustomExceptionType type, String message) {
         super(message);
         this.type = type;
     }
-
+}
         
