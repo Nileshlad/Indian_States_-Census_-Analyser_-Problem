@@ -21,8 +21,8 @@ public class CSVStates<recordCount> {
         //LOCAL VARIABLE
         int recordCount = 0;
         String extension = getFileExtension(csvFilePath);
-        if (!Pattern.matches(PATTERN_FOR_CSV_FILE,extension))
-            throw new StateCensusAnalyserException(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.NO_SUCH_TYPE,"No such a type");
+        if (!Pattern.matches(PATTERN_FOR_CSV_FILE, extension))
+            throw new StateCensusAnalyserException(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.NO_SUCH_TYPE, "No such a type");
         int recordCount1 = recordCount;
         try (Reader reader = Files.newBufferedReader(Paths.get(csvFilePath))) {
             CsvToBean<IndianStateCode> csvToBean = new CsvToBeanBuilder(reader)
@@ -41,14 +41,15 @@ public class CSVStates<recordCount> {
                 System.out.println();
             }
         } catch (RuntimeException e) {
-            throw new StateCensusAnalyserException(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.WRONG_DELIMITER_OR_HEADER,"No such delimiter and header");
-        }catch (NoSuchFileException e) {
-                throw new StateCensusAnalyserException(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.FILE_NOT_FOUND,"File not found");
+            throw new StateCensusAnalyserException(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.WRONG_DELIMITER_OR_HEADER, "No such delimiter and header");
+        } catch (NoSuchFileException e) {
+            throw new StateCensusAnalyserException(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.FILE_NOT_FOUND, "File not found");
         } catch (IOException e) {
             e.printStackTrace();
         }
         return recordCount1;
     }
+
     //METHOD TO GET EXTENSION OF CSV FILE
     private static String getFileExtension(String file) {
         String extension = "";
