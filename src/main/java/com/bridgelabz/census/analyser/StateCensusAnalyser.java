@@ -29,9 +29,7 @@ public class StateCensusAnalyser {
                 recordCount++;
                 IndianStateCode censusCSV = censusCSVIterator.next();
             }
-            Iterable<IndianStateCode> iterable = () -> censusCSVIterator;
-            recordCount = (int) StreamSupport.stream(iterable.spliterator(), false).count();
-            return recordCount;
+            return this.getCount(censusCSVIterator);
         } catch (RuntimeException e) {
             throw new StateCensusAnalyserException(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.WRONG_DELIMITER_OR_HEADER, "Delimiter or header not found");
         } catch (NoSuchFileException e) {
@@ -51,9 +49,7 @@ public class StateCensusAnalyser {
             throw new StateCensusAnalyserException(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.NO_SUCH_TYPE, "No such a type");
         try (Reader reader = Files.newBufferedReader(Paths.get(csvFilePath))) {
             Iterator<IndianStateCode> statesCSVIterator = this.getCsvFileIterator(reader, IndianStateCode.class);
-            Iterable<IndianStateCode> iterable = () -> statesCSVIterator;
-            recordCount = (int) StreamSupport.stream(iterable.spliterator(), false).count();
-            return recordCount;
+            return this.getCount(statesCSVIterator);
         } catch (RuntimeException e) {
             throw new StateCensusAnalyserException(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.WRONG_DELIMITER_OR_HEADER, "No such delimiter and header");
         } catch (NoSuchFileException e) {
@@ -84,6 +80,12 @@ public class StateCensusAnalyser {
         csvToBeanBuilder.withIgnoreLeadingWhiteSpace(true);
         CsvToBean<E> csvToBean = csvToBeanBuilder.build();
         return csvToBean.iterator();
+    }
+
+    private <E> int getCount(Iterator<E> iterator) {
+        Iterable<E> iterable = () -> iterator;
+        int recordCount = (int) StreamSupport.stream(iterable.spliterator(), false).count();
+        return recordCount;
     }
 
     public static void main(String[] args) {
