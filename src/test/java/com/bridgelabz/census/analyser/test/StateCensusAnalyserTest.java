@@ -15,7 +15,7 @@ public class StateCensusAnalyserTest {
     private static final String WRONG_DELIMITER_STATE_CENSUS_DATA_PATH = "src/test/resources/WrongDelimiterStateCodeData.csv";
     private static final String WRONG_HEADER_STATE_CENSUS_DATA_PATH = "./src/test/resources/WrongHeaderStateCensusData.csv";
     private static final String INDIAN_STATE_CODE_INFORMATION_PATH = "./src/test/resources/StateCode.csv";
-    private static final String WRONG_INDIAN_STATE_CODE_INFORMATION_PATH = "./src/test/resources/StatCode.csv";
+    private static final String WRONG_INDIAN_STATE_CODE_INFORMATION_PATH = "./src/test/resourcs/StatCode.csv";
     private static final String WRONG_DELIMITER_INDIAN_STATE_CODE_INFORMATION_PATH = "./src/test/resources/WrongDelimiterStateCodeData.csv";
     private static final String WRONG_HEADER_INDIAN_STATE_CODE_INFORMATION_PATH = "./src/test/resources/WrongHeaderStateCodeData.csv";
 
