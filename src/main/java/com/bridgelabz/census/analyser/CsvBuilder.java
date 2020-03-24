@@ -1,5 +1,6 @@
 package com.bridgelabz.census.analyser;
 
+import com.exception.StateCensusAnalyserException;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 

@@ -1,4 +1,4 @@
-package com.bridgelabz.census.analyser;
+package com.exception;
 
 public class StateCensusAnalyserException extends Exception {
 

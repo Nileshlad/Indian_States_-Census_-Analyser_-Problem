@@ -1,5 +1,7 @@
 package com.bridgelabz.census.analyser;
 
+import com.exception.CSVBuilderException;
+import com.exception.StateCensusAnalyserException;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 
@@ -36,8 +38,10 @@ public class StateCensusAnalyser {
             throw new StateCensusAnalyserException(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.FILE_NOT_FOUND, "File not found");
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (CSVBuilderException e) {
+            e.printStackTrace();
         }
-        return recordCount;
+        return 0;
     }
 
     //METHOD TO LOAD THE CSV FILE AND GET
@@ -56,8 +60,10 @@ public class StateCensusAnalyser {
             throw new StateCensusAnalyserException(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.FILE_NOT_FOUND, "File not found");
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (CSVBuilderException e) {
+            e.printStackTrace();
         }
-        return recordCount;
+        return 0;
     }
 
     //METHOD TO GET EXTENSION OF CSV FILE

@@ -2,7 +2,7 @@ package com.bridgelabz.census.analyser.test;
 
 import com.bridgelabz.census.analyser.CSVStates;
 import com.bridgelabz.census.analyser.StateCensusAnalyser;
-import com.bridgelabz.census.analyser.StateCensusAnalyserException;
+import com.exception.StateCensusAnalyserException;
 import org.junit.Assert;
 import org.junit.Test;
 
