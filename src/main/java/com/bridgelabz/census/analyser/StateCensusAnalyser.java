@@ -24,7 +24,7 @@ public class StateCensusAnalyser {
         if (!Pattern.matches(PATTERN_FOR_CSV_FILE, extension))
             throw new StateCensusAnalyserException(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.NO_SUCH_TYPE, "No such a type");
         try (Reader reader = Files.newBufferedReader(Paths.get(csvFilePath))) {
-            Iterator<IndianStateCode> censusCSVIterator = new CsvIterator().getCsvFileIterator(reader, IndianStateCode.class);
+            Iterator<IndianStateCode> censusCSVIterator = new CsvBuilder().getCSVFileIterator(reader, IndianStateCode.class);
             while (censusCSVIterator.hasNext()) {
                 recordCount++;
                 IndianStateCode censusCSV = censusCSVIterator.next();
@@ -48,7 +48,7 @@ public class StateCensusAnalyser {
         if (!Pattern.matches(PATTERN_FOR_CSV_FILE, extension))
             throw new StateCensusAnalyserException(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.NO_SUCH_TYPE, "No such a type");
         try (Reader reader = Files.newBufferedReader(Paths.get(csvFilePath))) {
-            Iterator<IndianStateCode> statesCSVIterator = new CsvIterator() .getCsvFileIterator(reader, IndianStateCode.class);
+            Iterator<IndianStateCode> statesCSVIterator = new CsvBuilder().getCSVFileIterator(reader, IndianStateCode.class);
             return this.getCount(statesCSVIterator);
         } catch (RuntimeException e) {
             throw new StateCensusAnalyserException(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.WRONG_DELIMITER_OR_HEADER, "No such delimiter and header");
