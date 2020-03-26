@@ -14,3 +14,4 @@ public class CSVBuilderException extends Exception {
         this.type = type;
     }
 }
+

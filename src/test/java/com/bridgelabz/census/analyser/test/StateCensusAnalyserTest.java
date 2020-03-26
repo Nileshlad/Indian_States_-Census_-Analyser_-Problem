@@ -8,7 +8,6 @@ import org.junit.Test;
 
 public class StateCensusAnalyserTest {
     //CONSTANT
-
     private static final String STATE_CENSUS_DATA_PATH = "./src/test/rescue/StateCensusData.csv";
     private static final String WRONG_STATE_CENSUS_DATA_PATH = "./src/test/rescue/StateCensusData.csv";
     private static final String WRONG_TYPE_STATE_CENSUS_DATA_PATH = "./src/test/resources/StateCensusData.cv";
@@ -18,7 +17,6 @@ public class StateCensusAnalyserTest {
     private static final String WRONG_INDIAN_STATE_CODE_INFORMATION_PATH = "./src/test/resourcs/StatCode.csv";
     private static final String WRONG_DELIMITER_INDIAN_STATE_CODE_INFORMATION_PATH = "./src/test/resources/WrongDelimiterStateCodeData.csv";
     private static final String WRONG_HEADER_INDIAN_STATE_CODE_INFORMATION_PATH = "./src/test/resources/WrongHeaderStateCodeData.csv";
-
     //OBJECT
     StateCensusAnalyser censusAnalyserProblem = new StateCensusAnalyser();
     CSVStates csvStates = new CSVStates();
@@ -92,7 +90,7 @@ public class StateCensusAnalyserTest {
         }
     }
 
-    //TEST CASE 2.3 
+    //TEST CASE 2.3
     @Test
     public void givenIndianStateCodeCsvFile_WhenImproperType_ShouldThrowException() throws StateCensusAnalyserException {
         try {

@@ -1,14 +1,13 @@
 package com.bridgelabz.census.analyser;
 
+import com.exception.CSVBuilderException;
 import com.exception.StateCensusAnalyserException;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 
 import java.io.Reader;
 import java.util.Iterator;
-
 public class CsvBuilder implements IcsvBuilder {
-
     //GENERIC METHOD TO GET CSV ITERATOR
     public <E> Iterator<E> getCSVFileIterator(Reader reader, Class<E> csvClass) throws CSVBuilderException {
         try {
