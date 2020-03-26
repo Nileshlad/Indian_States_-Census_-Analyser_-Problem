@@ -19,7 +19,7 @@ public class StateCensusAnalyserTest {
     private static final String WRONG_DELIMITER_INDIAN_STATE_CODE_INFORMATION_PATH = "./src/test/resources/WrongDelimiterStateCodeData.csv";
     private static final String WRONG_HEADER_INDIAN_STATE_CODE_INFORMATION_PATH = "./src/test/resources/WrongHeaderStateCodeData.csv";
 
-   //OBJECT
+    //OBJECT
     StateCensusAnalyser censusAnalyserProblem = new StateCensusAnalyser();
 
     //TEST CASE 1.1
@@ -120,6 +120,18 @@ public class StateCensusAnalyserTest {
             String sortedCensusData = censusAnalyserProblem.getSortedCensusStateData(STATE_CENSUS_DATA_PATH);
             IndianStateCode[] censusCSV = new Gson().fromJson(sortedCensusData, IndianStateCode[].class);
             Assert.assertEquals("Andhra Pradesh", censusCSV[0].state);
+        } catch (StateCensusAnalyserException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //TEST CASE 3.2
+    @Test
+    public void givenIndianCensusData_WhenSortedOnState_ShouldReturnLastSortedResult() {
+        try {
+            String sortedCensusData = censusAnalyserProblem.getSortedCensusStateData(STATE_CENSUS_DATA_PATH);
+            IndianStateCode[] censusCSV = new Gson().fromJson(sortedCensusData, IndianStateCode[].class);
+            Assert.assertEquals("West Bengal", censusCSV[28].state);
         } catch (StateCensusAnalyserException e) {
             e.printStackTrace();
         }
