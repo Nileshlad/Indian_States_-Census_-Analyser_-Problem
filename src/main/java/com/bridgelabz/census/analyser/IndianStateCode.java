@@ -2,7 +2,7 @@ package com.bridgelabz.census.analyser;
 
 import com.opencsv.bean.CsvBindByName;
 
-public class IndianStateCode {
+public class IndianStateCode extends CSVstateCensus {
 
     //SETTER
     public void setSrNo(String srNo) {
