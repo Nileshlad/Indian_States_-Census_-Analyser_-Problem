@@ -136,4 +136,17 @@ public class StateCensusAnalyserTest {
             e.printStackTrace();
         }
     }
+
+    //TEST CASE 5.1
+    @Test
+    public void givenTheStateCensusData_WhenSortedOnPopulation_ShouldReturnSortedResult() {
+        try {
+            censusAnalyserProblem.loadIndianStateCodeData(STATE_CENSUS_DATA_PATH);
+            String sortedCensusData = censusAnalyserProblem.getPopulationWiseSortedCensusData();
+            IndianStateCode[] stateCSV = new Gson().fromJson(sortedCensusData,IndianStateCode[].class);
+            Assert.assertEquals(199812341, stateCSV[0].getPopulation());
+        } catch (StateCensusAnalyserException e) {
+            e.getStackTrace();
+        }
+    }
 }
