@@ -1,20 +1,20 @@
 package com.bridgelabz.census.analyser;
 
-import com.exception.CSVBuilderException;
-import com.exception.StateCensusAnalyserException;
-import com.google.gson.Gson;
-import com.opencsv.bean.CsvToBean;
-import com.opencsv.bean.CsvToBeanBuilder;
+        import com.exception.CSVBuilderException;
+        import com.exception.StateCensusAnalyserException;
+        import com.google.gson.Gson;
+        import com.opencsv.bean.CsvToBean;
+        import com.opencsv.bean.CsvToBeanBuilder;
 
-import java.io.IOException;
-import java.io.Reader;
-import java.nio.file.Files;
-import java.nio.file.NoSuchFileException;
-import java.nio.file.Paths;
-import java.util.*;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
+        import java.io.IOException;
+        import java.io.Reader;
+        import java.nio.file.Files;
+        import java.nio.file.NoSuchFileException;
+        import java.nio.file.Paths;
+        import java.util.*;
+        import java.util.regex.Pattern;
+        import java.util.stream.Collectors;
+        import java.util.stream.StreamSupport;
 
 public class StateCensusAnalyser {
     //CONSTANT
@@ -149,6 +149,18 @@ public class StateCensusAnalyser {
             throw new StateCensusAnalyserException(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.NO_CENSUS_DATA, "No census data");
         }
         Comparator<CensusDAO> censusComparator = Comparator.comparing(censusDAO -> censusDAO.population);
+        this.sortCSVData(censusComparator);
+        Collections.reverse(censusList);
+        String sortedStateCensusJson = new Gson().toJson(censusList);
+        return sortedStateCensusJson;
+    }
+
+    //METHOD TO SORT STATE CENSUS DATA BY POPULATION DENSITY
+    public String getPopulationDensityWiseSortedCensusData() throws StateCensusAnalyserException {
+        if (censusList == null || censusList.size() == 0) {
+            throw new StateCensusAnalyserException(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.NO_CENSUS_DATA, "No census data");
+        }
+        Comparator<CensusDAO> censusComparator = Comparator.comparing(censusDAO -> censusDAO.densityPerSqKm);
         this.sortCSVData(censusComparator);
         Collections.reverse(censusList);
         String sortedStateCensusJson = new Gson().toJson(censusList);

@@ -1,5 +1,6 @@
 package com.bridgelabz.census.analyser.test;
 
+import com.bridgelabz.census.analyser.CensusDAO;
 import com.bridgelabz.census.analyser.IndianStateCode;
 import com.bridgelabz.census.analyser.StateCensusAnalyser;
 import com.exception.StateCensusAnalyserException;
@@ -143,10 +144,24 @@ public class StateCensusAnalyserTest {
         try {
             censusAnalyserProblem.loadIndianStateCodeData(STATE_CENSUS_DATA_PATH);
             String sortedCensusData = censusAnalyserProblem.getPopulationWiseSortedCensusData();
-            IndianStateCode[] stateCSV = new Gson().fromJson(sortedCensusData,IndianStateCode[].class);
-            Assert.assertEquals(199812341, stateCSV[0].getPopulation());
+            CensusDAO[] censusCSV = new Gson().fromJson(sortedCensusData, CensusDAO[].class);
+            Assert.assertEquals(199812341, censusCSV[0].population);
+        } catch (StateCensusAnalyserException e) {
+            e.getStackTrace();
+        }
+    }
+
+    //TEST CASE 6.1
+    @Test
+    public void givenTheStateCensusData_WhenSortedOnDensityPerSqKm_ShouldReturnSortedResult() {
+        try {
+            censusAnalyserProblem.loadIndiaCensusData(STATE_CENSUS_DATA_PATH);
+            String sortedCensusData = censusAnalyserProblem.getPopulationDensityWiseSortedCensusData();
+            CensusDAO[] censusCSV = new Gson().fromJson(sortedCensusData, CensusDAO[].class);
+            Assert.assertEquals(1102, censusCSV[0].densityPerSqKm);
         } catch (StateCensusAnalyserException e) {
             e.getStackTrace();
         }
     }
 }
+
