@@ -167,6 +167,18 @@ public class StateCensusAnalyser {
         return sortedStateCensusJson;
     }
 
+    //METHOD TO SORT STATE CENSUS DATA BY AREA
+    public String getAreaWiseSortedCensusData() throws StateCensusAnalyserException {
+        if (censusList == null || censusList.size() == 0) {
+            throw new StateCensusAnalyserException(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.NO_CENSUS_DATA, "No census data");
+        }
+        Comparator<CensusDAO> censusComparator = Comparator.comparing(censusDAO -> censusDAO.areaInSqKm);
+        this.sortCSVData(censusComparator);
+        Collections.reverse(censusList);
+        String sortedStateCensusJson = new Gson().toJson(censusList);
+        return sortedStateCensusJson;
+    }
+
     public static void main(String[] args) {
         System.out.println("Welcome to Indian States Census Analyser Problem");
     }

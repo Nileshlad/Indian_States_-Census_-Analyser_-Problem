@@ -7,6 +7,7 @@ public class CensusDAO {
     public String density;
     public String stateCode;
     public String densityPerSqKm;
+    public String areaInSqKm;
 
     public CensusDAO(CSVstateCensus csvStateCensus) {
         this.state = csvStateCensus.getState();
