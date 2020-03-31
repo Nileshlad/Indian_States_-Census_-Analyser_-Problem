@@ -8,9 +8,9 @@ public class USCensusCSV {
     @CsvBindByName(column = "State", required = true)
     private String state;
     @CsvBindByName(column = "Population", required = true)
-    private int population;
+    private String population;
     @CsvBindByName(column = "Total area", required = true)
-    private double totalArea;
+    private String totalArea;
     @CsvBindByName(column = "Population Density", required = true)
     private double densityPerSqKm;
 
@@ -22,15 +22,15 @@ public class USCensusCSV {
         return state;
     }
 
-    public int getPopulation() {
+    public String getPopulation() {
         return population;
     }
 
-    public double getTotalArea() {
+    public String getTotalArea() {
         return totalArea;
     }
 
-    public double getDensityPerSqKm() {
+    public String getDensityPerSqKm() {
         return densityPerSqKm;
     }
 }

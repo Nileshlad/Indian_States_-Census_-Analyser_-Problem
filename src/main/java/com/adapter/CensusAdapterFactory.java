@@ -1,0 +1,13 @@
+package com.adapter;
+
+import com.bridgelabz.census.analyser.StateCensusAnalyser;
+
+public class CensusAdapterFactory {
+    public static USCensusAdapter getCensusData(StateCensusAnalyser.COUNTRY country) {
+        if (country.equals(StateCensusAnalyser.COUNTRY.INDIA))
+            return new IndiaCensusAdapter();
+        if (country.equals(StateCensusAnalyser.COUNTRY.US))
+            return new USCensusAdapter();
+        return null;
+    }
+}

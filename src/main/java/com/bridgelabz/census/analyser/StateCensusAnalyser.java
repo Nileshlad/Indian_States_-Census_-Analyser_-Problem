@@ -72,7 +72,7 @@ public class StateCensusAnalyser {
     }
 
     //METHOD TO GET EXTENSION OF CSV FILE
-    private static String getFileExtension(String file) {
+    public static String getFileExtension(String file) {
         String extension = "";
         try {
             if (file != null) {

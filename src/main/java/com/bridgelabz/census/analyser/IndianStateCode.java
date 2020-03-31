@@ -5,7 +5,7 @@ import com.opencsv.bean.CsvBindByName;
 public class IndianStateCode extends CSVstateCensus {
 
     //SETTER
-    public void setSrNo(String srNo) {
+    public void setSrNo(int srNo) {
         this.srNo = srNo;
     }
 
@@ -17,7 +17,7 @@ public class IndianStateCode extends CSVstateCensus {
         this.name = name;
     }
 
-    public void setTin(String tin) {
+    public void setTin(int tin) {
         this.tin = tin;
     }
 
@@ -26,7 +26,7 @@ public class IndianStateCode extends CSVstateCensus {
     }
 
     //GETTER
-    public String getSrNo() {
+    public int getSrNo() {
         return srNo;
     }
 
@@ -38,7 +38,7 @@ public class IndianStateCode extends CSVstateCensus {
         return name;
     }
 
-    public String getTin() {
+    public int getTin() {
         return tin;
     }
 
@@ -47,7 +47,7 @@ public class IndianStateCode extends CSVstateCensus {
     }
 
     @CsvBindByName(column = "SrNo",required = true)
-    public String srNo;
+    public int srNo;
 
     @CsvBindByName(column = "State",required = true)
     public String state;
@@ -56,7 +56,7 @@ public class IndianStateCode extends CSVstateCensus {
     public String name;
 
     @CsvBindByName(column = "TIN",required = true)
-    public String tin;
+    public int tin;
 
     @CsvBindByName(column = "StateCode",required = true)
     public String stateCode;
