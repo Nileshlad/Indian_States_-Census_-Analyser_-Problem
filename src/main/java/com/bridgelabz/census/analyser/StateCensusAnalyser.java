@@ -173,6 +173,27 @@ public class StateCensusAnalyser {
         return sortedStateCensusJson;
     }
 
+    //FUNCTION TO LOAD US CENSUS DATA
+    public int loadUSCensusData(String csvFilePath) throws StateCensusAnalyserException {
+        int numberOfRecords = 0;
+        String extension = getFileExtension(csvFilePath);
+        if (!Pattern.matches(PATTERN_FOR_CSV_FILE,extension))
+            throw new StateCensusAnalyserException(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.NO_SUCH_TYPE,"No such a type");
+        try (Reader reader = Files.newBufferedReader(Paths.get(csvFilePath))) {
+            IcsvBuilder csvBuilder = CsvBuilderFactory.createCsvBuilder();
+            List<USCensusCSV> csvUSCensusList = csvBuilder.getCSVFileList(reader,USCensusCSV);
+            numberOfRecords = csvUSCensusList.size();
+        } catch (RuntimeException e) {
+            throw new StateCensusAnalyserException(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.WRONG_DELIMITER_OR_HEADER, "Incorrect delimiter or header.");
+        } catch (NoSuchFileException e) {
+            throw new StateCensusAnalyserException(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.FILE_NOT_FOUND, "Incorrect file.");
+        } catch (CSVBuilderException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.getStackTrace();
+        }
+        return numberOfRecords;
+    }
     public static void main(String[] args) {
         System.out.println("Welcome to Indian States Census Analyser Problem");
     }
