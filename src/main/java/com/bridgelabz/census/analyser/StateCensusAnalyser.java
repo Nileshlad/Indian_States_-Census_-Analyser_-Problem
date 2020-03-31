@@ -100,7 +100,7 @@ public class StateCensusAnalyser {
         return recordCount;
     }
 
-    public String getSortedCensusStateData(String stateCensusDataPath) throws StateCensusAnalyserException {
+    public String getSortedCensusStateData() throws StateCensusAnalyserException {
         if (censusList == null || censusList.size() == 0) {
             throw new StateCensusAnalyserException(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.NO_SUCH_CENSUS_DATA, "Census data not found");
         }
