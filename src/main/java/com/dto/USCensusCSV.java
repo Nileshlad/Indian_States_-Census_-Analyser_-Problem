@@ -3,6 +3,14 @@ package com.dto;
 import com.opencsv.bean.CsvBindByName;
 
 public class USCensusCSV {
+    public USCensusCSV(String stateId, String state, int population, double totalArea, double populationDensity) {
+        this.stateId = stateId;
+        this.state = state;
+        this.population = population;
+        this.totalArea = totalArea;
+        this.densityPerSqKm = populationDensity;
+    }
+
     @CsvBindByName(column = " State Id", required = true)
     private String stateId;
     @CsvBindByName(column = "State", required = true)
@@ -10,7 +18,7 @@ public class USCensusCSV {
     @CsvBindByName(column = "Population", required = true)
     private int population;
     @CsvBindByName(column = "Total area", required = true)
-    private int totalArea;
+    private double totalArea;
     @CsvBindByName(column = "Population Density", required = true)
     private double densityPerSqKm;
 
@@ -26,7 +34,7 @@ public class USCensusCSV {
         return population;
     }
 
-    public int getTotalArea() {
+    public double getTotalArea() {
         return totalArea;
     }
 

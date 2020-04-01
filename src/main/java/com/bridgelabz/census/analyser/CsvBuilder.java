@@ -1,6 +1,8 @@
 package com.bridgelabz.census.analyser;
 
+
 import com.dto.IndianStateCode;
+import com.exception.CSVBuilderException;
 import com.exception.StateCensusAnalyserException;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
@@ -40,6 +42,11 @@ public class CsvBuilder implements IcsvBuilder {
         } catch (StateCensusAnalyserException e) {
             e.printStackTrace();
         }
+        return null;
+    }
+
+    @Override
+    public <E> List<E> getCSVFileList(Reader reader, Class<E> csvClass) throws CSVBuilderException {
         return null;
     }
 }

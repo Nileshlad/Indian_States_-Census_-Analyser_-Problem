@@ -26,8 +26,8 @@ public class StateCensusAnalyser {
     }
 
     //GENERIC METHOD LOADING EVERY FILE DATA
-    public int loadCensusData(String... csvFilePath) throws StateCensusAnalyserException {
-        CensusAdapter censusLoader = CensusAdapterFactory.getCensusData(country);
+    public int loadCensusData(COUNTRY country, COUNTRY india, String... csvFilePath) throws StateCensusAnalyserException {
+        CensusAdapter censusLoader = CensusAdapterFactory.getCensusData(this.country);
         censusMap = censusLoader.loadCensusData(csvFilePath);
         return censusMap.size();
     }

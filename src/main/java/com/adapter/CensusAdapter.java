@@ -2,8 +2,13 @@ package com.adapter;
 
 import com.bridgelabz.census.analyser.*;
 import com.dao.CensusDAO;
+<<<<<<< HEAD
 import com.dto.CSVstateCensus;
 import com.dto.IndianStateCode;
+=======
+import com.dao.IndianStateCode;
+import com.dto.CSVstateCensus;
+>>>>>>> 9.The_Report_State_Data_Json_Formate_According_To_State
 import com.dto.USCensusCSV;
 import com.exception.CSVBuilderException;
 import com.exception.StateCensusAnalyserException;
