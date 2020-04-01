@@ -1,15 +1,14 @@
 package com.dao;
 
 import com.bridgelabz.census.analyser.CSVstateCensus;
-import com.bridgelabz.census.analyser.IndianStateCode;
-import com.bridgelabz.census.analyser.USCensusCSV;
+import com.dto.USCensusCSV;
 
 public class CensusDAO {
-    public String population;
-    public String areaInSqKm;
-    public String densityPerSqKm;
-    public String tin;
-    public String srNo;
+    public int population;
+    public int areaInSqKm;
+    public double densityPerSqKm;
+    public int tin;
+    public int srNo;
     public String name;
     public String state;
     public String stateCode;

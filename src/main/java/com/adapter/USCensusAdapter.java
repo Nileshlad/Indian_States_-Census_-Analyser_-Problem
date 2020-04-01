@@ -1,7 +1,7 @@
 package com.adapter;
 
-import com.bridgelabz.census.analyser.CensusDAO;
-import com.bridgelabz.census.analyser.USCensusCSV;
+import com.dto.USCensusCSV;
+import com.dao.CensusDAO;
 import com.exception.StateCensusAnalyserException;
 
 import java.util.Map;

@@ -1,5 +1,7 @@
 package com.bridgelabz.census.analyser;
 
+import com.dao.CensusDAO;
+import com.dao.IndianStateCode;
 import com.exception.CSVBuilderException;
 import com.exception.StateCensusAnalyserException;
 import com.google.gson.Gson;
@@ -17,11 +19,14 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 public class StateCensusAnalyser {
+    public static final Object COUNTRY = ;
     //CONSTANT
     private static final String PATTERN_FOR_CSV_FILE = "^[a-zA-Z0-9./_@]*[.]+[c][s][v]$";
 
     List<CensusDAO> censusList = null;
     Map<String, CensusDAO> censusMap = null;
+    private Class<IndianStateCode> CensusDAO
+            ;
 
     public StateCensusAnalyser() {
         this.censusMap = new HashMap<>();
@@ -181,7 +186,7 @@ public class StateCensusAnalyser {
             throw new StateCensusAnalyserException(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.NO_SUCH_TYPE,"No such a type");
         try (Reader reader = Files.newBufferedReader(Paths.get(csvFilePath))) {
             IcsvBuilder csvBuilder = CsvBuilderFactory.createCsvBuilder();
-            List<USCensusCSV> csvUSCensusList = csvBuilder.getCSVFileList(reader,USCensusCSV);
+            List<com.dao.CensusDAO> csvUSCensusList = csvBuilder.getCSVFileList(reader,CensusDAO);
             numberOfRecords = csvUSCensusList.size();
         } catch (RuntimeException e) {
             throw new StateCensusAnalyserException(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.WRONG_DELIMITER_OR_HEADER, "Incorrect delimiter or header.");
@@ -198,4 +203,6 @@ public class StateCensusAnalyser {
         System.out.println("Welcome to Indian States Census Analyser Problem");
     }
 
+    public class COUNTRY {
+    }
 }

@@ -1,6 +1,9 @@
 package com.adapter;
 
 import com.bridgelabz.census.analyser.*;
+import com.dao.CensusDAO;
+import com.dao.IndianStateCode;
+import com.dto.USCensusCSV;
 import com.exception.CSVBuilderException;
 import com.exception.StateCensusAnalyserException;
 
@@ -36,15 +39,15 @@ public abstract class CensusAdapter {
                         .map(IndianStateCode.class::cast)
                         .forEach(censusCSV -> censusMap.put(censusCSV.getState(), new CensusDAO((CSVstateCensus) censusCSV)));
                 return censusMap;
-            }
-            if (censusCsvClass.getName().contains("USCensusCSV")) {
+            } else if (censusCsvClass.getName().contains("USCensusCSV")) {
                 StreamSupport.stream(csvIterable.spliterator(), false)
                         .map(USCensusCSV.class::cast)
                         .forEach(censusCSV -> {
                             censusMap.put(censusCSV.getState(), new CensusDAO(censusCSV));
                         });
                 return censusMap;
-            }
+            }  else {
+            throw new StateCensusAnalyserException(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.NO_SUCH_COUNTRY,"Wrong country name");}
         } catch (NoSuchFileException e) {
             throw new StateCensusAnalyserException(StateCensusAnalyserException.CensusAnalyserCustomExceptionType.FILE_NOT_FOUND, "File not found");
         } catch (IOException e) {

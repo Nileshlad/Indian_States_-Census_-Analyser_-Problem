@@ -1,4 +1,4 @@
-package com.bridgelabz.census.analyser;
+package com.dto;
 
 import com.opencsv.bean.CsvBindByName;
 
@@ -8,9 +8,9 @@ public class USCensusCSV {
     @CsvBindByName(column = "State", required = true)
     private String state;
     @CsvBindByName(column = "Population", required = true)
-    private String population;
+    private int population;
     @CsvBindByName(column = "Total area", required = true)
-    private String totalArea;
+    private int totalArea;
     @CsvBindByName(column = "Population Density", required = true)
     private double densityPerSqKm;
 
@@ -22,15 +22,15 @@ public class USCensusCSV {
         return state;
     }
 
-    public String getPopulation() {
+    public int getPopulation() {
         return population;
     }
 
-    public String getTotalArea() {
+    public int getTotalArea() {
         return totalArea;
     }
 
-    public String getDensityPerSqKm() {
+    public double getDensityPerSqKm() {
         return densityPerSqKm;
     }
 }
