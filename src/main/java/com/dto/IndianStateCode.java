@@ -5,6 +5,11 @@ import com.opencsv.bean.CsvBindByName;
 public class IndianStateCode extends CSVstateCensus {
 
     public IndianStateCode(String state, String stateCode, int population, Double areaInSqKm, double densityPerSqKm) {
+        super();
+    }
+
+    public IndianStateCode() {
+        super();
     }
 
     //SETTER

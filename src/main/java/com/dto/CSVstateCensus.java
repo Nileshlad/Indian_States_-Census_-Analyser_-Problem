@@ -3,16 +3,16 @@ package com.dto;
 import com.opencsv.bean.CsvBindByName;
 
 public class CSVstateCensus {
-    public CSVstateCensus() {
-    }
-
-    ;
-
-    public CSVstateCensus(String state, int population, Double areaInSqKm, Double densityPerSqKm) {
+    public CSVstateCensus(String state, String stateCode, int population, Double areaInSqKm, Double densityPerSqKm) {
         this.state = state;
+        this.stateCode = stateCode;
         this.population = population;
         this.areaInSqKm = areaInSqKm;
         this.densityPerSqKm = densityPerSqKm;
+    }
+
+    public CSVstateCensus() {
+
     }
 
     public String getState() {
@@ -51,13 +51,15 @@ public class CSVstateCensus {
     public String state;
 
     @CsvBindByName(column = "Population", required = true)
-    public int population;
+    private int population;
 
     @CsvBindByName(column = "AreaInSqKm", required = true)
-    public Double areaInSqKm;
+    private Double areaInSqKm;
 
     @CsvBindByName(column = "DensityPerSqKm", required = true)
-    public Double densityPerSqKm;
+    private Double densityPerSqKm;
+
+    private String stateCode = new IndianStateCode().getStateCode();
 
     @Override
     public String toString() {
