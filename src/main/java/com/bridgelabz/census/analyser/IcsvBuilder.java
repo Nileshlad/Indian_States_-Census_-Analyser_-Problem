@@ -1,7 +1,7 @@
 package com.bridgelabz.census.analyser;
 
+import com.dao.IndianStateCode;
 import com.exception.CSVBuilderException;
-import com.exception.StateCensusAnalyserException;
 
 import java.io.Reader;
 import java.util.Iterator;
