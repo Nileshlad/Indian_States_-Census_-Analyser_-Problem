@@ -1,4 +1,4 @@
-package com.bridgelabz.census.analyser;
+package com.dto;
 
 import com.opencsv.bean.CsvBindByName;
 

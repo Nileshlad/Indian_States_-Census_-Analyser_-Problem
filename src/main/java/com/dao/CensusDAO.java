@@ -1,6 +1,7 @@
 package com.dao;
 
-import com.bridgelabz.census.analyser.CSVstateCensus;
+import com.dto.CSVstateCensus;
+import com.dto.IndianStateCode;
 import com.dto.USCensusCSV;
 
 public class CensusDAO {
@@ -22,10 +23,10 @@ public class CensusDAO {
     }
 
     public CensusDAO(IndianStateCode indianStateCode) {
-        this.srNo=indianStateCode.getSrNo();
-        this.state=indianStateCode.getState();
-        this.name=indianStateCode.getName();
-        this.tin=indianStateCode.getTin();
+        this.srNo = indianStateCode.getSrNo();
+        this.state = indianStateCode.getState();
+        this.name = indianStateCode.getName();
+        this.tin = indianStateCode.getTin();
         this.stateCode = indianStateCode.getStateCode();
     }
 

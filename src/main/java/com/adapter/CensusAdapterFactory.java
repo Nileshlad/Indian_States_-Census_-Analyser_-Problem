@@ -1,6 +1,6 @@
 package com.adapter;
 
-import com.bridgelabz.census.analyser.StateCensusAnalyser;
+import com.service.StateCensusAnalyser;
 
 public class CensusAdapterFactory {
     public static CensusAdapter getCensusData(StateCensusAnalyser.COUNTRY country) {

@@ -1,6 +1,5 @@
-package com.dao;
+package com.dto;
 
-import com.bridgelabz.census.analyser.CSVstateCensus;
 import com.opencsv.bean.CsvBindByName;
 
 public class IndianStateCode extends CSVstateCensus {
@@ -64,7 +63,7 @@ public class IndianStateCode extends CSVstateCensus {
 
     @Override
     public String toString() {
-        return "com.bridgelabz.censusanalyserproject.IndianStateCode {" +
+        return "com.bridgelabz.dto.IndianStateCode {" +
                 "SrNo='" + srNo + '\'' +
                 " ,State='" + state + '\'' +
                 " ,Name='" + name + '\'' +

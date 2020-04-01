@@ -1,10 +1,10 @@
 package com.bridgelabz.census.analyser.test;
 
 
-import com.bridgelabz.census.analyser.CSVstateCensus;
-import com.bridgelabz.census.analyser.StateCensusAnalyser;
+import com.dto.CSVstateCensus;
+import com.service.StateCensusAnalyser;
 import com.dao.CensusDAO;
-import com.dao.IndianStateCode;
+import com.dto.IndianStateCode;
 import com.exception.StateCensusAnalyserException;
 import com.google.gson.Gson;
 import org.junit.Assert;

@@ -2,14 +2,15 @@ package com.exception;
 
 public class CSVBuilderException extends Exception {
 
-    public StateCensusAnalyserException.CensusAnalyserCustomExceptionType type;
+    public CensusAnalyserCustomExceptionType type;
 
     //ENUM CLASS
-    enum Exception_Type {
-        UNABLE_TO_PARSE;
+    public enum CensusAnalyserCustomExceptionType {
+        UNABLE_TO_PARSE, NO_SUCH_FILE, NO_SUCH_FILE_TYPE, NO_SUCH_DELIMITER_OR_HEADER;
     }
+
     //CONSTRUCTOR
-    public CSVBuilderException(StateCensusAnalyserException.CensusAnalyserCustomExceptionType type,String message) {
+    public CSVBuilderException(CensusAnalyserCustomExceptionType type, String message) {
         super(message);
         this.type = type;
     }

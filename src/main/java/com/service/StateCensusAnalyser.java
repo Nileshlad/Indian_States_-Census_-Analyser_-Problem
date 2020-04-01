@@ -1,4 +1,4 @@
-package com.bridgelabz.census.analyser;
+package com.service;
 
 import com.adapter.CensusAdapter;
 import com.adapter.CensusAdapterFactory;
@@ -12,21 +12,18 @@ import java.util.stream.StreamSupport;
 
 public class StateCensusAnalyser {
 
-    //List<CensusDAO> censusList = null;
     Map<String, CensusDAO> censusMap = null;
 
     public enum COUNTRY {INDIA, US}
 
     public StateCensusAnalyser() {
         this.censusMap = new HashMap<>();
-        // this.censusList = new ArrayList<>();
     }
 
     //GENERIC METHOD LOADING EVERY FILE DATA
     public int loadCensusData(COUNTRY country, String... csvFilePath) throws StateCensusAnalyserException {
         CensusAdapter censusLoader = CensusAdapterFactory.getCensusData(country);
         censusMap = censusLoader.loadCensusData(csvFilePath);
-        //censusList = censusMap.values().stream().collect(Collectors.toList());
         return censusMap.size();
     }
 
