@@ -24,14 +24,14 @@ public class IndiaCensusAdapter extends CensusAdapter {
 
     @Override
     public Map<String, CensusDAO> loadCensusData(String... csvFilePath) throws StateCensusAnalyserException {
-        Map<String,CensusDAO>censusMap= super.loadCensusData(IndianStateCode.class,csvFilePath[0]);
+        Map<String, CensusDAO> censusMap = super.loadCensusData(IndianStateCode.class, csvFilePath[0]);
         if (csvFilePath.length == 1)
             return censusMap;
-        return this.loadStateCodeCensusData(censusMap,csvFilePath[1]);
+        return this.loadStateCodeCensusData(censusMap, csvFilePath[1]);
     }
 
     //FUNCTION TO LOAD US CENSUS DATA
-    private <E> Map<String, CensusDAO> loadStateCodeCensusData(Map<String, CensusDAO> censusMap, String csvFilePath) throws  StateCensusAnalyserException {
+    private <E> Map<String, CensusDAO> loadStateCodeCensusData(Map<String, CensusDAO> censusMap, String csvFilePath) throws StateCensusAnalyserException {
 
         String extension = StateCensusAnalyser.getFileExtension(csvFilePath);
         if (!Pattern.matches(PATTERN_FOR_CSV_FILE, extension))

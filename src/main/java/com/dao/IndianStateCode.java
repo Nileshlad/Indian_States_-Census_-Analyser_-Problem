@@ -47,24 +47,24 @@ public class IndianStateCode extends CSVstateCensus {
         return stateCode;
     }
 
-    @CsvBindByName(column = "SrNo",required = true)
+    @CsvBindByName(column = "SrNo", required = true)
     public int srNo;
 
-    @CsvBindByName(column = "State",required = true)
+    @CsvBindByName(column = "State", required = true)
     public String state;
 
-    @CsvBindByName(column = "Name",required = false)
+    @CsvBindByName(column = "Name", required = false)
     public String name;
 
-    @CsvBindByName(column = "TIN",required = true)
+    @CsvBindByName(column = "TIN", required = true)
     public int tin;
 
-    @CsvBindByName(column = "StateCode",required = true)
+    @CsvBindByName(column = "StateCode", required = true)
     public String stateCode;
 
     @Override
     public String toString() {
-        return "com.bridgelabz.censusanalyserproject.IndianStateCode {"+
+        return "com.bridgelabz.censusanalyserproject.IndianStateCode {" +
                 "SrNo='" + srNo + '\'' +
                 " ,State='" + state + '\'' +
                 " ,Name='" + name + '\'' +

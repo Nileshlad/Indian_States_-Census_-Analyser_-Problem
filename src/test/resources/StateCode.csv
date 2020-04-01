@@ -1,38 +1,37 @@
-SrNo,State,Name,TIN,StateCode
-1,Andaman and Nicobar Islands,,35,AN
-2,Andhra Pradesh,,28,AP
-3,Andhra Pradesh New,,37,AD
-4,Arunachal Pradesh,,12,AR
-5,Assam,,18,AS
-6,Bihar,,10,BH
-7,Chandigarh,,4,CH
-8,Chattisgarh,,22,CT
-9,Dadra and Nagar Haveli,,26,DN
-10,Daman and Diu,,25,DD
-11,Delhi,,7,DL
-12,Goa,,30,GA
-13,Gujarat,,24,GJ
-14,Haryana,,6,HR
-15,Himachal Pradesh,,2,HP
-16,Jammu and Kashmir,,1,JK
-17,Jharkhand,,20,JH
-18,Karnataka,,29,KA
-19,Kerala,,32,KL
-20,Lakshadweep Islands,,31,LD
-21,Madhya Pradesh,,23,MP
-22,Maharashtra,,27,MH
-23,Manipur,,14,MN
-24,Meghalaya,,17,ME
-25,Mizoram,,15,MI
-26,Nagaland,,13,NL
-27,Odisha,,21,OR
-28,Pondicherry,,34,PY
-29,Punjab,,3,PB
-30,Rajasthan,,8,RJ
-31,Sikkim,,11,SK
-32,Tamil Nadu,,33,TN
-33,Telangana,,36,TS
-34,Tripura,,16,TR
-35,Uttar Pradesh,,9,UP
-36,Uttarakhand,,5,UT
-37,West Bengal,,19,WB
+1,Andaman and Nicobar Islands,ANdsf,35,AN
+2,Andhra Pradesh,Apdsf,28,AP
+3,New Andhra Pradesh,Addsf,37,AD
+4,Arunachal Pradesh,Ardsf,12,AR
+5,Assam,Asdsf,18,AS
+6,Bihar,BH,10,BH
+7,Chandigarh,CHdsf,4,CH
+8,Chattisgarh,CT,22,CT
+9,Dadra and Nagar Haveli,DNdsf,26,DN
+10,Daman and Diu,DD,25,DD
+11,Delhi,DL,7,DL
+12,Goa,GA,30,GA
+13,Gujarat,GJ,24,GJ
+14,Haryana,HR,6,HR
+15,Himachal Pradesh,HP,2,HP
+16,Jammu and Kashmir,JK,1,JK
+17,Jharkhand,JH,20,JH
+18,Karnataka,KA,29,KA
+19,Kerala,KL,32,KL
+20,Lakshadweep Islands,LD,31,LD
+21,Madhya Pradesh,MP,23,MP
+22,Maharashtra,MH,27,MH
+23,Manipur,MN,14,MN
+24,Meghalaya,ME,17,ME
+25,Mizoram,MI,15,MI
+26,Nagaland,NL,13,NL
+27,Odisha,OR,21,OR
+28,Pondicherry,PY,34,PY
+29,Punjab,PB,3,PB
+30,Rajasthan,RJ,8,RJ
+31,Sikkim,SK,11,SK
+32,Tamil Nadu,TN,33,TN
+33,Telangana,TS,36,TS
+34,Tripura,TR,16,TR
+35,Uttar Pradesh,UP,9,UP
+36,Uttarakhand,UT,5,UT
+37,West Bengal,WB,19,WB
