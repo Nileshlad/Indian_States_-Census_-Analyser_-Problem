@@ -2,7 +2,7 @@ package com.adapter;
 
 import com.bridgelabz.census.analyser.CsvBuilderFactory;
 import com.bridgelabz.census.analyser.IcsvBuilder;
-import com.bridgelabz.census.analyser.StateCensusAnalyser;
+import com.service.StateCensusAnalyser;
 import com.dao.CensusDAO;
 import com.dao.IndianStateCode;
 import com.exception.CSVBuilderException;

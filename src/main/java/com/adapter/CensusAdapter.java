@@ -3,9 +3,11 @@ package com.adapter;
 import com.bridgelabz.census.analyser.*;
 import com.dao.CensusDAO;
 import com.dao.IndianStateCode;
+import com.dto.CSVstateCensus;
 import com.dto.USCensusCSV;
 import com.exception.CSVBuilderException;
 import com.exception.StateCensusAnalyserException;
+import com.service.StateCensusAnalyser;
 
 import java.io.IOException;
 import java.io.Reader;

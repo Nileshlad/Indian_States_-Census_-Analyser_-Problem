@@ -1,6 +1,6 @@
 package com.dao;
 
-import com.bridgelabz.census.analyser.CSVstateCensus;
+import com.dto.CSVstateCensus;
 import com.opencsv.bean.CsvBindByName;
 
 public class IndianStateCode extends CSVstateCensus {

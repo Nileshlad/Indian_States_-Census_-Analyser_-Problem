@@ -1,11 +1,12 @@
 package com.dao;
 
-import com.bridgelabz.census.analyser.CSVstateCensus;
+import com.service.StateCensusAnalyser;
+import com.dto.CSVstateCensus;
 import com.dto.USCensusCSV;
 
 public class CensusDAO {
     public int population;
-    public int areaInSqKm;
+    public Double areaInSqKm;
     public double densityPerSqKm;
     public int tin;
     public int srNo;
@@ -31,8 +32,16 @@ public class CensusDAO {
 
     public CensusDAO(USCensusCSV usCensusCSV) {
         state = usCensusCSV.getState();
-        areaInSqKm = usCensusCSV.getTotalArea();
+        areaInSqKm = (double) usCensusCSV.getTotalArea();
         densityPerSqKm = usCensusCSV.getDensityPerSqKm();
         population = usCensusCSV.getPopulation();
+    }
+
+    public Object getCensusDTO(StateCensusAnalyser.COUNTRY country) {
+        if (country.equals(StateCensusAnalyser.COUNTRY.INDIA))
+            return new CSVstateCensus(state, population, areaInSqKm, densityPerSqKm);
+        if (country.equals(StateCensusAnalyser.COUNTRY.US))
+            return new USCensusCSV(stateCode, state, population, areaInSqKm, population);
+        return null;
     }
 }
