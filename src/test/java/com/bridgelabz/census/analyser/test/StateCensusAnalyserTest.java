@@ -278,6 +278,7 @@ public class StateCensusAnalyserTest {
             Assert.assertEquals("District of Columbia", censusCSV[50].state);
         } catch (StateCensusAnalyserException e) {
             e.getStackTrace();
+
         }
     }
 
