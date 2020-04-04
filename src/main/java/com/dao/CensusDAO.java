@@ -2,10 +2,6 @@ package com.dao;
 
 import com.dto.CSVstateCensus;
 import com.dto.IndianStateCode;
-
-import com.service.StateCensusAnalyser;
-import com.dto.CSVstateCensus;
-
 import com.dto.USCensusCSV;
 import com.service.StateCensusAnalyser;
 
@@ -21,6 +17,30 @@ public class CensusDAO {
     public String state;
     public String stateCode;
 
+
+    public int getPopulation() {
+        return population;
+    }
+
+    public double getAreaInSqKm() {
+        return areaInSqKm;
+    }
+
+    public double getDensityPerSqKm() {
+        return densityPerSqKm;
+    }
+
+    public void setPopulation(int population) {
+        this.population = population;
+    }
+
+    public void setAreaInSqKm(double areaInSqKm) {
+        this.areaInSqKm = areaInSqKm;
+    }
+
+    public void setDensityPerSqKm(double densityPerSqKm) {
+        this.densityPerSqKm = densityPerSqKm;
+    }
 
     public CensusDAO(CSVstateCensus csvStateCensus) {
         this.state = csvStateCensus.getState();
@@ -48,11 +68,11 @@ public class CensusDAO {
         if (mode.equals(StateCensusAnalyser.SORTING_MODE.STATE))
             return Comparator.comparing(census -> census.state);
         if (mode.equals(StateCensusAnalyser.SORTING_MODE.POPULATION))
-            return Comparator.comparing(census -> census.population);
+            return Comparator.comparing(CensusDAO::getPopulation).reversed();
         if (mode.equals(StateCensusAnalyser.SORTING_MODE.DENSITY))
-            return Comparator.comparing(census -> census.densityPerSqKm);
+            return Comparator.comparing(CensusDAO::getDensityPerSqKm).reversed();
         if (mode.equals(StateCensusAnalyser.SORTING_MODE.AREA))
-            return Comparator.comparing(census -> census.areaInSqKm);
+            return Comparator.comparing(CensusDAO::getAreaInSqKm).reversed();
         if (mode.equals(StateCensusAnalyser.SORTING_MODE.STATECODE))
             return Comparator.comparing(census -> census.stateCode);
         return null;
@@ -61,6 +81,6 @@ public class CensusDAO {
     public Object getCensusDTO(StateCensusAnalyser.COUNTRY country) {
         if (country.equals(StateCensusAnalyser.COUNTRY.INDIA))
             return new IndianStateCode(state, stateCode, population, areaInSqKm, densityPerSqKm);
-        return new USCensusCSV(stateCode, state, population, areaInSqKm, population);
+        return new USCensusCSV(stateCode, state, population, areaInSqKm, densityPerSqKm);
     }
 }
